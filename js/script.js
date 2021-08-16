@@ -32,14 +32,15 @@ class Writestuff {
 
     generalStuff() {
         buttonSt.onclick = () => {
+            let inter;
             showBox.textContent = "";
             this.updateVars();
             let allMet = this.checkIn();
             if (allMet == true) {
-                let inter = setInterval(() => {
+                inter = setInterval(() => {
                     if(this.num < this.text.length) {
                         showBox.textContent += this.text.charAt(this.num);
-                        if (this.text.charAt(this.num) != "") {
+                        if (this.text.charAt(this.num) != " " && this.text.charAt(this.num) != ",") {
                             soundPW.pause();
                             soundPW.currentTime = 0;
                             soundPW.play();
