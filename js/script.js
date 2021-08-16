@@ -36,19 +36,19 @@ class Writestuff {
             this.updateVars();
             let allMet = this.checkIn();
             if (allMet == true) {
-                if (this.num < this.text.length){
-                this.x = setInterval( () => {
-                    showBox.textContent += this.text.charAt(this.num);
-                    if (this.text.charAt(this.num) != ""){
-                        soundPW.pause();
-                        soundPW.currentTime = 0;
-                        soundPW.play();
+                let inter = setInterval(() => {
+                    if(this.num < this.text.length) {
+                        showBox.textContent += this.text.charAt(this.num);
+                        if (this.text.charAt(this.num) != "") {
+                            soundPW.pause();
+                            soundPW.currentTime = 0;
+                            soundPW.play();
+                        }
+                        this.num++;
+                    } else {
+                        clearInterval(inter);
                     }
-                    this.num++;
-                }, this.speed)
-            } else {
-                clearInterval(this.x);
-            }
+                },this.speed)
             } else {
                 alert("Text maximum is 160, Minimun speed is 30 and you need to actually write something.");
             }
